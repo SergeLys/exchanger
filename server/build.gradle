@@ -17,5 +17,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
