@@ -10,7 +10,6 @@ import java.util.List;
 
 public final class VtbBank implements Bank {
 
-    private String name = "VTB Bank";
     private String url = "https://www.vtb.ru/api/currency-exchange/table-info?contextItemId={C5471052-2291-4AFD-9C2D-1DBC40A4769D}&conversionPlace=0&conversionType=0&renderingId=ede2e4d0-eb6b-4730-857b-06fd4975c06b&renderingParams=LegalStatus__{F2A32685-E909-44E8-A954-1E206D92FFF8};IsFromRuble__1;CardMaxPeriodDays__5;CardRecordsOnPage__5;ConditionsUrl__/personal/platezhi-i-perevody/obmen-valjuty/spezkassy/";
     private List<Currency> currencies;
 
@@ -24,8 +23,8 @@ public final class VtbBank implements Bank {
         currencies = new ArrayList<>();
         try {
             Object obj = new JSONParser().parse(response);
-            currencies.add(getEUR(obj));
-            currencies.add(getUSD(obj));
+            currencies.add(createEUR(obj));
+            currencies.add(createUSD(obj));
 
         } catch (Exception ex){
             ex.printStackTrace();
@@ -33,7 +32,7 @@ public final class VtbBank implements Bank {
     }
 
     @Override
-    public Currency getEUR(Object obj){
+    public Currency createEUR(Object obj){
 
         JSONObject jo = (JSONObject) obj;
         JSONArray array = (JSONArray) jo.get("GroupedRates");
@@ -46,7 +45,7 @@ public final class VtbBank implements Bank {
     }
 
     @Override
-    public Currency getUSD(Object obj){
+    public Currency createUSD(Object obj){
 
         JSONObject jo = (JSONObject) obj;
         JSONArray array = (JSONArray) jo.get("GroupedRates");
@@ -58,10 +57,12 @@ public final class VtbBank implements Bank {
                 Double.valueOf(jo.get("BankSellAt").toString()));
     }
 
+    @Override
     public String getName() {
-        return name;
+        return "VTB Bank";
     }
 
+    @Override
     public List<Currency> getCurrencies() {
         return currencies;
     }

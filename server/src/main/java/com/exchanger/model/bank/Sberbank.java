@@ -13,7 +13,6 @@ import org.json.simple.parser.JSONParser;
 
 public final class Sberbank implements Bank {
 
-    private String name = "Sberbank";
     private String url = "https://www.sberbank.ru/portalserver/proxy/?pipe=shortCachePipe&url=http%3A%2F%2Flocalhost%2Frates-web%2FrateService%2Frate%2Fcurrent%3FregionId%3D77%26rateCategory%3Dfirst%26currencyCode%3D840%26currencyCode%3D978";
     private List<Currency> currencies;
 
@@ -27,8 +26,8 @@ public final class Sberbank implements Bank {
         currencies = new ArrayList<>();
         try {
             Object obj = new JSONParser().parse(response);
-            currencies.add(getEUR(obj));
-            currencies.add(getUSD(obj));
+            currencies.add(createEUR(obj));
+            currencies.add(createUSD(obj));
 
         } catch (Exception ex){
             ex.printStackTrace();
@@ -36,7 +35,7 @@ public final class Sberbank implements Bank {
     }
 
     @Override
-    public Currency getEUR(Object obj){
+    public Currency createEUR(Object obj){
 
         JSONObject jo = (JSONObject) obj;
         JSONObject eur = (JSONObject) jo.get("first");
@@ -49,7 +48,7 @@ public final class Sberbank implements Bank {
     }
 
     @Override
-    public Currency getUSD(Object obj){
+    public Currency createUSD(Object obj){
 
         JSONObject jo = (JSONObject) obj;
         JSONObject eur = (JSONObject) jo.get("first");
@@ -61,10 +60,12 @@ public final class Sberbank implements Bank {
                 Double.valueOf(eur3.get("sellValue").toString()));
     }
 
+    @Override
     public String getName() {
-        return name;
+        return "Sberbank";
     }
 
+    @Override
     public List<Currency> getCurrencies() {
         return currencies;
     }

@@ -4,15 +4,16 @@ import com.exchanger.model.Currency;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public final class AlfaBank implements Bank {
+public final class CentralBank implements Bank {
 
-    private String url = "https://alfabank.ru/ext-json/0.2/exchange/cash?offset=0&limit=2&mode=rest";
+    private String url = "https://www.cbr-xml-daily.ru/daily_json.js";
     private List<Currency> currencies;
 
-    public AlfaBank(){
+    public CentralBank(){
         update();
     }
 
@@ -33,32 +34,30 @@ public final class AlfaBank implements Bank {
     @Override
     public Currency createEUR(Object obj){
 
-        Object eur = ((JSONObject) obj).get("eur");
-        JSONArray array= (JSONArray) eur;
-        JSONObject buyValue = (JSONObject) array.get(0);
-        JSONObject sellValue = (JSONObject) array.get(2);
+        JSONObject jo = (JSONObject) obj;
+        jo = (JSONObject) jo.get("Valute");
+        jo = (JSONObject) jo.get("EUR");
 
         return  new Currency("EUR",
-                Double.valueOf(buyValue.get("value").toString()),
-                Double.valueOf(sellValue.get("value").toString()));
+                Double.valueOf(jo.get("Previous").toString()),
+                Double.valueOf(jo.get("Previous").toString()));
     }
 
     @Override
     public Currency createUSD(Object obj){
 
-        Object usd = ((JSONObject) obj).get("usd");
-        JSONArray array = (JSONArray) usd;
-        JSONObject buyValue = (JSONObject) array.get(0);
-        JSONObject sellValue = (JSONObject) array.get(2);
+        JSONObject jo = (JSONObject) obj;
+        jo = (JSONObject) jo.get("Valute");
+        jo = (JSONObject) jo.get("USD");
 
         return  new Currency("USD",
-                Double.valueOf(buyValue.get("value").toString()),
-                Double.valueOf(sellValue.get("value").toString()));
+                Double.valueOf(jo.get("Previous").toString()),
+                Double.valueOf(jo.get("Previous").toString()));
     }
 
     @Override
     public String getName() {
-        return "Alfa Bank";
+        return "Central Bank";
     }
 
     @Override

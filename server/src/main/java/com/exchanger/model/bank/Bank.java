@@ -1,7 +1,6 @@
 package com.exchanger.model.bank;
 
 import com.exchanger.model.Currency;
-import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -39,7 +38,11 @@ public interface Bank {
 
     void update();
 
-    Currency getEUR(Object obj);
+    Currency createEUR(Object obj);
 
-    Currency getUSD(Object obj);
+    Currency createUSD(Object obj);
+
+    List<Currency> getCurrencies();
+
+    String getName();
 }
