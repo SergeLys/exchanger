@@ -1,7 +1,14 @@
-<template>
+npm<template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+      <v-toolbar dark color="primary">
+        <v-toolbar-title>Exchanger</v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
+      <router-view/>
+      <v-footer class="pa-3" dark color="primary">
+        <v-spacer></v-spacer>
+        <div>&copy; {{ new Date().getFullYear() }}</div>
+      </v-footer>
   </div>
 </template>
 
@@ -18,6 +25,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
