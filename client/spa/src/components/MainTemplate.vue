@@ -1,16 +1,23 @@
 <template>
   <div>
-    <OfficialRate></OfficialRate>
-    <ProfitableBanks></ProfitableBanks>
-    <v-spacer></v-spacer>
-    <BankList></BankList>
+    <v-parallax
+      dark
+      height="800"
+      src="./static/assets/logo.jpg"
+    >
+      <v-layout
+        align-center
+        column
+        justify-center
+      >
+        <h1 class="display-2 font-weight-thin mb-3">Welcome</h1>
+        <h4 class="subheading">This is a site of monitoring of exchangers of banks of St. Petersburg</h4>
+      </v-layout>
+    </v-parallax>
   </div>
 </template>
 
 <script>
-  import BankList from './BanksList.vue'
-  import OfficialRate from './OfficialRate.vue'
-  import ProfitableBanks from './ProfitableBanks.vue'
 
 export default {
   data() {
@@ -18,9 +25,6 @@ export default {
     }
   },
   components: {
-    BankList,
-    OfficialRate,
-    ProfitableBanks
   }
 }
 </script>

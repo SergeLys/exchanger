@@ -39,10 +39,10 @@
 </template>
 
 <script>
-    export default {
-        name: "BanksList",
-      data() {
-        return {
+export default {
+  name: "BanksList",
+  data() {
+    return {
           search: '',
           headers: [
             {

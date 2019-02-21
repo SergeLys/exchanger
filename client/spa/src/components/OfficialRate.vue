@@ -12,15 +12,24 @@
 </template>
 
 <script>
-    export default {
+
+export default {
       name: "OfficialRate",
       data() {
         return {
           usd : 0,
-          eur : 5
+          eur : 5,
+          currencies:[]
         }
+      },
+      created: function () {
+        this.$http.get('http://localhost:8181/api/official-rate').then(response => {
+          response.json().then(result =>
+          this.usd = result.currencies.get(0).buyValue;
+        })
       }
     }
+
 </script>
 
 <style scoped>
@@ -32,3 +41,4 @@
     color: #2c3e50;
   }
 </style>
+
