@@ -2,11 +2,8 @@ package com.exchanger.controller;
 
 import com.exchanger.model.BanksInstance;
 import com.exchanger.model.bank.Bank;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpServerErrorException;
-
 import java.util.HashMap;
 import java.util.List;
 

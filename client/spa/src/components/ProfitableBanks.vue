@@ -1,26 +1,29 @@
 <template>
   <div>
-    <v-alert id="info"
-      :value="true"
-      type="success"
-      color="green"
-    >
-      <h3>This is the most profitable course</h3>
-    </v-alert>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      class="elevation-1"
-    >
-      <template slot="items" slot-scope="props">
-        <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.calories }}</td>
-        <td class="text-xs-right">{{ props.item.fat }}</td>
-        <td class="text-xs-right">{{ props.item.carbs }}</td>
-        <td class="text-xs-right">{{ props.item.protein }}</td>
-        <td class="text-xs-right">{{ props.item.iron }}</td>
-      </template>
-    </v-data-table>
+    <div class="card">
+      <h2>Buying</h2>
+      <br/><b><h3>EUR</h3></b><br/>
+      <h4>Bank {{bestBuying.EUR.name}} : {{bestBuying.EUR.currencies[0].buyValue}} RUB</h4><br/>
+      <input v-model.number="buyEUR" type="number" placeholder="Enter your EUR">
+      <br/><h3>Cost: {{buyEUR * bestBuying.EUR.currencies[0].buyValue}} RUB</h3>
+      <br/>
+      <b><h3>USD</h3></b><br/>
+      <h4>Bank {{bestBuying.USD.name}} : {{bestBuying.USD.currencies[1].buyValue}} RUB</h4> <br/>
+      <input v-model.number="buyUSD" type="number" placeholder="Enter your USD">
+      <br/><h3>Cost: {{buyUSD * bestBuying.USD.currencies[1].buyValue}} RUB</h3>
+    </div>
+
+    <div class="card">
+      <h2>Selling</h2>
+      <br/><b><h3>EUR</h3></b><br/>
+      <h4>Bank {{bestSelling.EUR.name}} : {{bestSelling.EUR.currencies[0].sellValue}} RUB</h4> <br/>
+      <input v-model.number="sellEUR" type="number" placeholder="Enter your EUR">
+      <br/><h3>Cost: {{sellEUR * bestSelling.EUR.currencies[0].sellValue}} RUB</h3><br/>
+      <b><h3>USD</h3></b><br/>
+      <h4>Bank {{bestSelling.USD.name}} : {{bestSelling.USD.currencies[1].sellValue}} RUB</h4> <br/>
+      <input v-model.number="sellUSD" type="number" placeholder="Enter your USD">
+      <br/><h3>Cost: {{sellUSD * bestSelling.USD.currencies[1].sellValue}} RUB</h3>
+    </div>
   </div>
 </template>
 
@@ -29,47 +32,41 @@
         name: "ProfitableBanks",
       data() {
         return {
-          search: '',
-          headers: [
-            {
-              text: 'Bank',
-              align: 'center',
-              sortable: false,
-              value: 'name'
-            },
-            { text: 'Buying USD (RUB)', value: 'buyingUsd' },
-            { text: 'Selling USD (RUB)', value: 'sellingUsd' },
-            { text: 'Buying EUR (RUB)', value: 'buyingEur' },
-            { text: 'Selling EUR (RUB)', value: 'sellingEur' },
-
-          ],
-          banks: [
-            {
-              name: 'Sberbank',
-              buyingUsd: 159,
-              buyingEur: 15,
-              sellingUsd: 11,
-              sellingEur: 80,
-            },
-            {
-              name: 'Alfa bank',
-              buyingUsd: 15,
-              buyingEur: 14,
-              sellingUsd: 10,
-              sellingEur: 8,
-            }
-          ]
+          bestBuying: null,
+          bestSelling: null,
+          buyEUR:null,
+          buyUSD:null,
+          sellEUR:null,
+          sellUSD:null
         }
+      },
+      methods:{
+
+      },
+      created: function () {
+        this.$http.get('http://localhost:8181/api/best-buying').then(response => {
+          response.json().then(result =>{
+            this.bestBuying = result;
+          })
+        })
+        this.$http.get('http://localhost:8181/api/best-selling').then(response => {
+          response.json().then(result =>{
+            this.bestSelling = result;
+          })
+        })
       }
     }
 </script>
 
 <style scoped>
-  #info {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: left;
-    color: white;
-  }
+.card{
+  float: left;
+  margin: 20px;
+  padding: 15px;
+  background-color: khaki;
+}
+
+input, textarea {
+  background-color : white;
+}
 </style>

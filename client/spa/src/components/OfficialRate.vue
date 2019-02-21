@@ -18,14 +18,15 @@ export default {
       data() {
         return {
           usd : 0,
-          eur : 5,
-          currencies:[]
+          eur : 0,
         }
       },
       created: function () {
         this.$http.get('http://localhost:8181/api/official-rate').then(response => {
-          response.json().then(result =>
-          this.usd = result.currencies.get(0).buyValue;
+          response.json().then(result =>{
+              this.eur = result.currencies[0].buyValue;
+              this.usd = result.currencies[1].buyValue;
+          })
         })
       }
     }
