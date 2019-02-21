@@ -2,13 +2,13 @@
 Website for monitoring exchangers of banks of St. Petersburg
 
 #Technology Stack 
-+ ul Back-end
++ Back-end
   + Spring Boot
 
  
-+ ul Front-end
-  + ul Vue.js
-  + ul Vuetify.js
++ Front-end
+  + Vue.js
+  + Vuetify.js
 
 ![Illustration1](https://github.com/SergeLys/exchanger/blob/master/images/example1.PNG)
 
