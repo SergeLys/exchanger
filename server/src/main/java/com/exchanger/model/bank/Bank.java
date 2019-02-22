@@ -1,7 +1,7 @@
 package com.exchanger.model.bank;
 
 import com.exchanger.model.Currency;
-
+import org.json.simple.parser.JSONParser;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface Bank {
 
-    static String sendRequest(String httpUrl) {
+    static String sendRequest(String inpUrl) {
         StringBuilder response = new StringBuilder();
 
         try {
-            URL url = new URL(httpUrl);
+            URL url = new URL(inpUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             int code = connection.getResponseCode();
@@ -34,6 +34,19 @@ public interface Bank {
             response.append(ex.getMessage());
         }
         return response.toString();
+    }
+
+    static void getResponse(String url, Bank bank){
+        String response = Bank.sendRequest(url);
+        bank.getCurrencies().clear();
+        try {
+            Object obj = new JSONParser().parse(response);
+            bank.getCurrencies().add(bank.createEUR(obj));
+            bank.getCurrencies().add(bank.createUSD(obj));
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     void update();

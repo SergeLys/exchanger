@@ -3,8 +3,6 @@ package com.exchanger.model.bank;
 import com.exchanger.model.Currency;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +12,13 @@ public final class VtbBank implements Bank {
     private List<Currency> currencies;
 
     public VtbBank(){
+        currencies = new ArrayList<>();
         update();
     }
 
     @Override
     public void update(){
-        String response = Bank.sendRequest(this.url);
-        currencies = new ArrayList<>();
-        try {
-            Object obj = new JSONParser().parse(response);
-            currencies.add(createEUR(obj));
-            currencies.add(createUSD(obj));
-
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
+        Bank.getResponse(this.url,this);
     }
 
     @Override

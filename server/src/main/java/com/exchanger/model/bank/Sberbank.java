@@ -1,15 +1,9 @@
 package com.exchanger.model.bank;
 
 import com.exchanger.model.Currency;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public final class Sberbank implements Bank {
 
@@ -17,21 +11,13 @@ public final class Sberbank implements Bank {
     private List<Currency> currencies;
 
     public Sberbank(){
+        currencies = new ArrayList<>();
         update();
     }
 
     @Override
     public void update(){
-        String response = Bank.sendRequest(this.url);
-        currencies = new ArrayList<>();
-        try {
-            Object obj = new JSONParser().parse(response);
-            currencies.add(createEUR(obj));
-            currencies.add(createUSD(obj));
-
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
+        Bank.getResponse(this.url,this);
     }
 
     @Override
