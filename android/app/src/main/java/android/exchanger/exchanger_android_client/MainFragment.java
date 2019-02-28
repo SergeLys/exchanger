@@ -1,11 +1,16 @@
 package android.exchanger.exchanger_android_client;
 
 import android.content.Context;
+import android.exchanger.exchanger_android_client.model.BanksInstance;
+import android.exchanger.exchanger_android_client.model.bank.Bank;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainFragment extends Fragment {
 
@@ -45,6 +50,10 @@ public class MainFragment extends Fragment {
 
         if(pageNumber == 0){
             result = inflater.inflate(R.layout.activity_banks_list, container, false);
+            List<Bank> banks = BanksInstance.getInstance().getBanksList();
+            ListView banksView = result.findViewById(R.id.banksList);
+            BankAdapter bankAdapter = new BankAdapter(getContext(), R.layout.banks_list_item, banks);
+            banksView.setAdapter(bankAdapter);
         }
         if(pageNumber == 1){
             result = inflater.inflate(R.layout.activity_best, container, false);
