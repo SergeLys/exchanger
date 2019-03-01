@@ -3,9 +3,84 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="best_fragment"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:text="The best buying"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:text="USD"/>
+
+        <TextView
+            android:id="@+id/bestBuyingUSD"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/holo_orange_dark"
+            android:text=""/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:text="EUR"/>
+
+        <TextView
+            android:id="@+id/bestBuyingEUR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/holo_green_dark"
+            android:text=""/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:text="The best selling"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:text="USD"/>
+
+        <TextView
+            android:id="@+id/bestSellingUSD"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/holo_orange_dark"
+            android:text=""/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:text="EUR"/>
+
+        <TextView
+            android:id="@+id/bestSellingEUR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/holo_green_dark"
+            android:text=""/>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

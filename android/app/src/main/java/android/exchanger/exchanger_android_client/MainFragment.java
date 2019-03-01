@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -57,6 +58,23 @@ public class MainFragment extends Fragment {
         }
         if(pageNumber == 1){
             result = inflater.inflate(R.layout.activity_best, container, false);
+            Bank bank = BanksInstance.getInstance().getBestBuyingPriceEUR();
+            ((TextView)result.findViewById(R.id.bestBuyingEUR)).setText(String.format(
+                    "Bank " + bank.getName() + " : " +
+                            bank.getCurrencies().get("EUR").getBuyValue().toString() + " RUB"));
+            bank = BanksInstance.getInstance().getBestBuyingPriceUSD();
+            ((TextView)result.findViewById(R.id.bestBuyingUSD)).setText(String.format(
+                    "Bank " + bank.getName() + " : " +
+                            bank.getCurrencies().get("USD").getBuyValue().toString() + " RUB"));
+            bank = BanksInstance.getInstance().getBestSellingEUR();
+            ((TextView)result.findViewById(R.id.bestSellingEUR)).setText(String.format(
+                    "Bank " + bank.getName() + " : " +
+                            bank.getCurrencies().get("EUR").getSellValue().toString() + " RUB"));
+            bank = BanksInstance.getInstance().getBestSellingUSD();
+            ((TextView)result.findViewById(R.id.bestSellingUSD)).setText(String.format(
+                    "Bank " + bank.getName() + " : " +
+                            bank.getCurrencies().get("USD").getSellValue().toString() + " RUB"));
+
         }
 
         return result;

@@ -22,11 +22,14 @@ public final class BanksInstance {
     public static BanksInstance getInstance() {
         if(instance == null){
             instance = new BanksInstance();
-        } else {
-            instance.centralBank.update();
-            for(Bank bank : instance.banks) bank.update();
+            instance.update();
         }
         return instance;
+    }
+
+    public void update(){
+        instance.centralBank.update();
+        for(Bank bank : instance.banks) bank.update();
     }
 
     public List<Bank> getBanksList(){
@@ -42,8 +45,8 @@ public final class BanksInstance {
         Bank result = null;
 
         for(Bank bank : banks){
-            if(bank.getCurrencies().get(1).getSellValue() < price){
-                price = bank.getCurrencies().get(1).getSellValue();
+            if(bank.getCurrencies().get("USD").getSellValue() < price){
+                price = bank.getCurrencies().get("USD").getSellValue();
                 result = bank;
             }
         }
@@ -55,8 +58,8 @@ public final class BanksInstance {
         Bank result = null;
 
         for(Bank bank : banks){
-            if(bank.getCurrencies().get(0).getSellValue() < price){
-                price = bank.getCurrencies().get(0).getSellValue();
+            if(bank.getCurrencies().get("EUR").getSellValue() < price){
+                price = bank.getCurrencies().get("EUR").getSellValue();
                 result = bank;
             }
         }
@@ -68,8 +71,8 @@ public final class BanksInstance {
         Bank result = null;
 
         for(Bank bank : banks){
-            if(bank.getCurrencies().get(1).getBuyValue() > price){
-                price = bank.getCurrencies().get(1).getBuyValue();
+            if(bank.getCurrencies().get("USD").getBuyValue() > price){
+                price = bank.getCurrencies().get("USD").getBuyValue();
                 result = bank;
             }
         }
@@ -81,8 +84,8 @@ public final class BanksInstance {
         Bank result = null;
 
         for(Bank bank : banks){
-            if(bank.getCurrencies().get(0).getBuyValue() > price){
-                price = bank.getCurrencies().get(0).getBuyValue();
+            if(bank.getCurrencies().get("EUR").getBuyValue() > price){
+                price = bank.getCurrencies().get("EUR").getBuyValue();
                 result = bank;
             }
         }
