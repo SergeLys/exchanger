@@ -16,8 +16,6 @@ public interface Bank {
 
         StringBuilder response = new StringBuilder();
 
-            Thread thread = new Thread(new Runnable(){
-                public void run(){
                     try {
                         URL url = new URL(inpUrl);
                         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -38,11 +36,7 @@ public interface Bank {
                     } catch (Exception ex){
                         response.append(ex.getMessage());
                     }
-                }
-            });
 
-            thread.start();
-            while (thread.isAlive()){}
         return response.toString();
     }
 

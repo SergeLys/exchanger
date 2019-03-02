@@ -37,7 +37,7 @@ public class BankAdapter extends ArrayAdapter<Bank> {
 
         Bank bank = banks.get(position);
 
-        nameView.setText(bank.getName());
+        nameView.setText("Bank " + bank.getName());
         buyUsdView.setText("Buying USD: " + bank.getCurrencies().get("USD").getBuyValue().toString() +" RUB");
         sellUsdView.setText("Selling USD: " + bank.getCurrencies().get("USD").getSellValue().toString() + " RUB");
         buyEurView.setText("Buying EUR: " +bank.getCurrencies().get("EUR").getBuyValue().toString() + " RUB");
