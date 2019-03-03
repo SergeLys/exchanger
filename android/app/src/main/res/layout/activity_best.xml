@@ -13,73 +13,69 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@android:color/black"
-            android:text="The best buying"/>
+            android:text="@string/best_buying"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@android:color/holo_orange_dark"
-            android:text="USD"/>
+            android:text="@string/usd"/>
 
         <TextView
             android:id="@+id/bestBuyingUSD"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@android:color/holo_orange_dark"
-            android:text=""/>
+            android:textColor="@android:color/holo_orange_dark" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@android:color/holo_green_dark"
-            android:text="EUR"/>
+            android:text="@string/eur"/>
 
         <TextView
             android:id="@+id/bestBuyingEUR"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@android:color/holo_green_dark"
-            android:text=""/>
+            android:textColor="@android:color/holo_green_dark" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@android:color/black"
-            android:text="The best selling"/>
+            android:text="@string/best_selling"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@android:color/holo_orange_dark"
-            android:text="USD"/>
+            android:text="@string/usd"/>
 
         <TextView
             android:id="@+id/bestSellingUSD"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@android:color/holo_orange_dark"
-            android:text=""/>
+            android:textColor="@android:color/holo_orange_dark" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@android:color/holo_green_dark"
-            android:text="EUR"/>
+            android:text="@string/eur"/>
 
         <TextView
             android:id="@+id/bestSellingEUR"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@android:color/holo_green_dark"
-            android:text=""/>
+            android:textColor="@android:color/holo_green_dark" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,15 +87,15 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Buying USD (RUB)"/>
+                android:hint="@string/buying_usd"/>
 
             <TextView
                 android:id="@+id/resultBuyUSD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="@android:color/black"
-                android:text="0 USD"/>
+                android:text="@string/result_usd"/>
         </LinearLayout>
 
         <LinearLayout
@@ -112,15 +108,15 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Buying EUR (RUB)"/>
+                android:hint="@string/buying_eur"/>
 
             <TextView
                 android:id="@+id/resultBuyEUR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="@android:color/black"
-                android:text="0 EUR"/>
+                android:text="@string/result_eur"/>
         </LinearLayout>
 
         <LinearLayout
@@ -133,15 +129,15 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Selling USD (USD)"/>
+                android:hint="@string/selling_usd"/>
 
             <TextView
                 android:id="@+id/resultSellUSD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="@android:color/black"
-                android:text="0 RUB"/>
+                android:text="@string/result_selling_usd"/>
         </LinearLayout>
 
         <LinearLayout
@@ -156,15 +152,15 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Selling EUR (EUR)"/>
+                android:hint="@string/selling_eur"/>
 
             <TextView
                 android:id="@+id/resultSellEUR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="@android:color/black"
-                android:text="0 RUB"/>
+                android:text="@string/result_selling_eur"/>
         </LinearLayout>
 
     </LinearLayout>

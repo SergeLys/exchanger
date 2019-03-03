@@ -16,16 +16,16 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic"
-            android:text="Название" />
+            android:text="@string/bank_name" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@android:color/black"
-            android:text="USD"/>
+            android:text="@string/usd"/>
 
 
         <TextView
@@ -33,21 +33,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_orange_dark"
-            android:text="SellUSD" />
+            android:text="@string/item_selling_usd" />
 
         <TextView
             android:id="@+id/buyUSD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_green_dark"
-            android:text="BuyUSD" />
+            android:text="@string/item_buying_usd" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="15dp"
-            android:text="EUR"/>
+            android:textSize="15sp"
+            android:text="@string/eur"/>
 
 
         <TextView
@@ -55,14 +55,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_orange_dark"
-            android:text="SellEUR" />
+            android:text="@string/item_selling_eur" />
 
         <TextView
             android:id="@+id/buyEUR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_green_dark"
-            android:text="BuyEUR" />
+            android:text="@string/item_buying_eur" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

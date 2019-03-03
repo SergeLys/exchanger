@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">exchanger_android_client</string>
+    <!--activity_banks_list_start-->
+
+    <!--activity_banks_list_end-->
+
+    <!--activity_best_start-->
+    <string name="best_buying">The best buying</string>
+    <string name="best_selling">The best selling</string>
+    <string name="buying_usd">Buying USD (RUB)</string>
+    <string name="buying_eur">Buying EUR (RUB)</string>
+    <string name="result_usd">0 USD</string>
+    <string name="result_eur">0 EUR</string>
+    <string name="selling_usd">Selling USD (USD)</string>
+    <string name="result_selling_usd">0 RUB</string>
+    <string name="selling_eur">Selling EUR (EUR)</string>
+    <string name="result_selling_eur">0 RUB</string>
+    <!--activity_best_end-->
+
+    <!--activity_main_start-->
+
+    <!--activity_main_end-->
+
+    <!--activity_banks_list_item_start-->
+    <string name="bank_name">Bank</string>
+    <string name="item_buying_usd">Buying USD</string>
+    <string name="item_buying_eur">Buying EUR</string>
+    <string name="item_selling_usd">Selling USD</string>
+    <string name="item_selling_eur">Selling EUR</string>
+    <!--activity_banks_list_item_end-->
+
+    <string name="app_name">exchanger $</string>
+    <string name="usd">USD</string>
+    <string name="eur">EUR</string>
 </resources>
